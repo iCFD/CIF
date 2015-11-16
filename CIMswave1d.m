@@ -55,15 +55,15 @@ while t < tEnd
     it=it+1; t=t+dt;
     
     % 1st stage
-    dF = rhsAdvect1dF1(u,v,dx,nx,tol);
+    dF = rhsAdvect1dF2(u,v,dx,nx,tol);
     u = uo-dt*dF;
     
     % 2nd Stage
-    dF = rhsAdvect1dF1(u,v,dx,nx,tol);
+    dF = rhsAdvect1dF2(u,v,dx,nx,tol);
     u = 0.75*uo+0.25*(u-dt*dF);
 
     % 3rd stage
-    dF = rhsAdvect1dF1(u,v,dx,nx,tol);
+    dF = rhsAdvect1dF2(u,v,dx,nx,tol);
     u = (uo+2*(u-dt*dF))/3;
     
     % Plot solution   
